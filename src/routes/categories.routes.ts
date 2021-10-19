@@ -9,6 +9,7 @@ categoriesRoutes.post("/categories", (req, res) => {
 
   categories.push({
     name,
+
     description,
   });
 

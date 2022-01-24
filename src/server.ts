@@ -1,4 +1,5 @@
 import express from "express";
+import "reflect-metadata";
 import swaggerUI from "swagger-ui-express";
 
 import { router } from "./routes";

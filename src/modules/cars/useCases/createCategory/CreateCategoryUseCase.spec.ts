@@ -1,5 +1,5 @@
-import { AppError } from "@errors/AppError";
 import { CategoriesRepositoriesInMemory } from "@modules/cars/repositories/in-memory/CategoriesRepositoriesInMemory";
+import { AppError } from "@shared/errors/AppError";
 
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 

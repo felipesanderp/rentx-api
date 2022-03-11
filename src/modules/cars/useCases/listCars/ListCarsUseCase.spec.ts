@@ -27,7 +27,7 @@ describe("List Cars", () => {
     expect(cars).toEqual([car]);
   });
 
-  it("should be able to list all available cars by name", async () => {
+  it("should be able to list all available cars by brand", async () => {
     const car = await carsRepositoryInMemory.create({
       name: "Car2",
       description: "Car Description",
@@ -40,6 +40,42 @@ describe("List Cars", () => {
 
     const cars = await listCarsUseCase.execute({
       brand: "Car_brand_test",
+    });
+
+    expect(cars).toEqual([car]);
+  });
+
+  it("should be able to list all available cars by name", async () => {
+    const car = await carsRepositoryInMemory.create({
+      name: "Car3",
+      description: "Car Description",
+      daily_rate: 100,
+      license_plate: "ABC-1234",
+      fine_amount: 40,
+      brand: "brand_name",
+      category_id: "category_id",
+    });
+
+    const cars = await listCarsUseCase.execute({
+      name: "Car3",
+    });
+
+    expect(cars).toEqual([car]);
+  });
+
+  it("should be able to list all available cars by category", async () => {
+    const car = await carsRepositoryInMemory.create({
+      name: "Car3",
+      description: "Car Description",
+      daily_rate: 100,
+      license_plate: "ABC-1234",
+      fine_amount: 40,
+      brand: "brand_name",
+      category_id: "category_id",
+    });
+
+    const cars = await listCarsUseCase.execute({
+      category_id: "category_id",
     });
 
     expect(cars).toEqual([car]);
